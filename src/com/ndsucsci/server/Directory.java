@@ -1,4 +1,8 @@
-package com.ndsucsci;
+package com.ndsucsci.server;
+
+import com.ndsucsci.objects.SearchResult;
+import com.ndsucsci.objects.UpdateFile;
+import com.ndsucsci.objects.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;

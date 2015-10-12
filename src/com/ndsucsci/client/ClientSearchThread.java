@@ -1,4 +1,8 @@
-package com.ndsucsci;
+package com.ndsucsci.client;
+
+import com.ndsucsci.clientservermessages.SearchRequest;
+import com.ndsucsci.clientservermessages.SearchResponse;
+import com.ndsucsci.objects.SearchResult;
 
 import java.io.IOException;
 import java.io.InputStream;

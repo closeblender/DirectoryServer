@@ -1,4 +1,6 @@
-package com.ndsucsci;
+package com.ndsucsci.clientservermessages;
+
+import com.ndsucsci.clientservermessages.DataMessage;
 
 /**
  * Created by closestudios on 10/9/15.

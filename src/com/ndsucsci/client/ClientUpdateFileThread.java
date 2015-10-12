@@ -1,35 +1,44 @@
-package com.ndsucsci;
+package com.ndsucsci.client;
+
+import com.ndsucsci.clientservermessages.UpdateFilesRequest;
+import com.ndsucsci.clientservermessages.UpdateFilesResponse;
+import com.ndsucsci.objects.UpdateFile;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 /**
  * Created by closestudios on 10/10/15.
  */
-public class ClientRegisterThread extends Thread {
+public class ClientUpdateFileThread extends Thread {
 
     Socket socket = null;
     String host;
     int port;
-    RegisterCallback callback;
+    ArrayList<UpdateFile> files;
+    String computerUUID;
+    UpdateFilesCallback callback;
 
-    public ClientRegisterThread(String host, int port, RegisterCallback callback) {
-        super("ClientRegisterThread");
+    public ClientUpdateFileThread(String host, int port, ArrayList<UpdateFile> files, String computerUUID, UpdateFilesCallback callback) {
+        super("ClientUpdateFileThread");
         this.host = host;
         this.port = port;
+        this.files = files;
+        this.computerUUID = computerUUID;
         this.callback = callback;
     }
 
-    public interface RegisterCallback {
-        void onRegistered(String computerUUID);
+    public interface UpdateFilesCallback {
+        void onUpdate(boolean updated);
     }
 
     public void run() {
 
         // Print out what you are doing
-        System.out.println("Register Client");
+        System.out.println("Update Files");
 
         try {
 
@@ -39,18 +48,18 @@ public class ClientRegisterThread extends Thread {
             InputStream inFromServer = socket.getInputStream();
 
             // Send Register Message
-            outToServer.write(RegisterRequest.createMessage());
+            outToServer.write(UpdateFilesRequest.createMessage(files, computerUUID));
             outToServer.flush();
 
             // Get response
-            RegisterResponse registerResponse = new RegisterResponse();
+            UpdateFilesResponse updateFilesResponse = new UpdateFilesResponse();
             byte[] data = new byte[1024];
-            while(!registerResponse.receivedRequest()) {
+            while(!updateFilesResponse.receivedRequest()) {
                 int length = inFromServer.read(data, 0, data.length);
-                registerResponse.receivedBytes(data, length);
+                updateFilesResponse.receivedBytes(data, length);
             }
 
-            callback.onRegistered(registerResponse.getComputerUUID());
+            callback.onUpdate(updateFilesResponse.getResult());
 
         } catch (IOException e) {
             e.printStackTrace();

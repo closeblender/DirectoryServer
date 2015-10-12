@@ -1,9 +1,8 @@
-package com.ndsucsci;
+package com.ndsucsci.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketAddress;
 
 /**
  * Created by closestudios on 10/9/15.

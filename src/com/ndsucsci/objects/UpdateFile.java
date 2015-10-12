@@ -1,4 +1,6 @@
-package com.ndsucsci;
+package com.ndsucsci.objects;
+
+import com.ndsucsci.clientservermessages.DataMessage;
 
 import java.io.IOException;
 import java.util.ArrayList;

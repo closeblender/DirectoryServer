@@ -1,4 +1,6 @@
-package com.ndsucsci;
+package com.ndsucsci.server;
+
+import com.ndsucsci.DirectoryServer;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

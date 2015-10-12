@@ -1,9 +1,9 @@
-package com.ndsucsci;
+package com.ndsucsci.clientservermessages;
 
 /**
  * Created by closestudios on 10/10/15.
  */
-public class UpdateFilesResponse extends DataMessage{
+public class UpdateFilesResponse extends DataMessage {
 
 
     public UpdateFilesResponse() {

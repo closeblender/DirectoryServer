@@ -1,4 +1,6 @@
-package com.ndsucsci;
+package com.ndsucsci.clientservermessages;
+
+import com.ndsucsci.objects.SearchResult;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by closestudios on 10/10/15.
  */
-public class SearchResponse extends DataMessage{
+public class SearchResponse extends DataMessage {
 
     public SearchResponse() {
         super();

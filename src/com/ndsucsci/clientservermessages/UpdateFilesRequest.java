@@ -1,9 +1,8 @@
-package com.ndsucsci;
+package com.ndsucsci.clientservermessages;
 
-import java.io.ByteArrayOutputStream;
+import com.ndsucsci.objects.UpdateFile;
+
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 /**

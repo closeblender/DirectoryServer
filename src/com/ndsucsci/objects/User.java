@@ -1,4 +1,4 @@
-package com.ndsucsci;
+package com.ndsucsci.objects;
 
 import java.util.Date;
 

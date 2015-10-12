@@ -1,4 +1,7 @@
-package com.ndsucsci;
+package com.ndsucsci.server;
+
+import com.ndsucsci.DirectoryServer;
+import com.ndsucsci.clientservermessages.*;
 
 import java.io.IOException;
 import java.io.InputStream;

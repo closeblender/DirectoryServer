@@ -1,4 +1,4 @@
-package com.ndsucsci;
+package com.ndsucsci.client;
 
 import java.io.IOException;
 import java.io.InputStream;

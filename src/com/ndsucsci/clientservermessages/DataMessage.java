@@ -1,4 +1,4 @@
-package com.ndsucsci;
+package com.ndsucsci.clientservermessages;
 
 
 import java.io.ByteArrayOutputStream;
