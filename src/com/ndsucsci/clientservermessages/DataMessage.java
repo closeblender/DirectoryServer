@@ -63,7 +63,7 @@ public class DataMessage {
         }
 
         int length = java.nio.ByteBuffer.wrap(dataSize).getInt();
-        int dataReceived = allData.size() - 4;
+        int dataReceived = allData.size();
         System.out.println("Received " + dataReceived + "/" + length);
 
         return length == dataReceived;
