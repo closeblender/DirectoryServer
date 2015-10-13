@@ -18,13 +18,13 @@ public class UpdateFilesRequest {
         serverRequest = request;
 
 
-        byte[] data = new byte[serverRequest.getData().size()];
+        byte[] data = new byte[serverRequest.getDataBytes().length];
         for(int i=0;i<data.length;i++) {
-            data[i] = serverRequest.getData().get(i);
+            data[i] = serverRequest.getDataBytes()[i];
         }
 
         ArrayList<byte[]> blocks = DataMessage.getBlocks(data);
-        computerUUID = new String ();
+        computerUUID = new String (blocks.get(0));
         processFiles(blocks.get(1));
 
     }
@@ -61,7 +61,7 @@ public class UpdateFilesRequest {
         updateBlocks.add(computerUUID.getBytes());
         updateBlocks.add(DataMessage.createBlocks(fileBlocks));
 
-        return DataMessage.createMessage(DataMessage.createBlocks(updateBlocks));
+        return ServerRequest.createMessage(DataMessage.createBlocks(updateBlocks), ServerRequest.ServerRequestType.UpdateList);
     }
 
 

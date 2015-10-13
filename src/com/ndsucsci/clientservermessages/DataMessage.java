@@ -36,9 +36,19 @@ public class DataMessage {
             processedBytes ++;
         }
 
+        System.out.println("Received " + allData.size() + "/" + getDataLength());
+
     }
 
-    public ArrayList<Byte> getData() {
+    int getDataLength() {
+        if(dataLengthReceived < 4) {
+            return 99999;
+        }
+        int length = java.nio.ByteBuffer.wrap(dataSize).getInt();
+        return length;
+    }
+
+    ArrayList<Byte> getData() {
         if(!receivedRequest()) {
             return null;
         }
@@ -62,11 +72,7 @@ public class DataMessage {
             return false;
         }
 
-        int length = java.nio.ByteBuffer.wrap(dataSize).getInt();
-        int dataReceived = allData.size();
-        System.out.println("Received " + dataReceived + "/" + length);
-
-        return length == dataReceived;
+        return getDataLength() == allData.size();
     }
 
     public static byte[] createMessage(byte[] data) {
@@ -89,6 +95,7 @@ public class DataMessage {
         ArrayList<byte[]> blocks = new ArrayList<>();
 
         int processingData = 0;
+        System.out.println("Processing Blocks: " + data.length);
 
         while(processingData < data.length) {
 

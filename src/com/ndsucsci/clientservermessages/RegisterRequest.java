@@ -12,7 +12,7 @@ public class RegisterRequest {
     }
 
     public static byte[] createMessage() {
-        return DataMessage.createMessage("Register".getBytes());
+        return ServerRequest.createMessage("Register".getBytes(), ServerRequest.ServerRequestType.Register);
     }
 
 }

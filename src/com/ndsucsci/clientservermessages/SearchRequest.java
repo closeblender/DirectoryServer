@@ -16,7 +16,7 @@ public class SearchRequest {
     }
 
     public static byte[] createMessage(String query) {
-        return DataMessage.createMessage(query.getBytes());
+        return ServerRequest.createMessage(query.getBytes(), ServerRequest.ServerRequestType.Search);
     }
 
 }

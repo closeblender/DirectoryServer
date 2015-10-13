@@ -2,11 +2,13 @@ package com.ndsucsci.server;
 
 import com.ndsucsci.DirectoryServer;
 import com.ndsucsci.clientservermessages.*;
+import com.ndsucsci.objects.SearchResult;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 /**
  * Created by closestudios on 10/9/15.
@@ -51,6 +53,8 @@ public class ServerProcessRequestThread extends Thread {
                     // Respond with new UUID;
                     response = RegisterResponse.createMessage(newUUID);
 
+                    System.out.println("Registered UUID: " + newUUID);
+
                     break;
                 case Search:
 
@@ -58,7 +62,10 @@ public class ServerProcessRequestThread extends Thread {
                     SearchRequest searchRequest = new SearchRequest(serverRequest);
 
                     // Create response
-                    response = SearchResponse.createMessage(DirectoryServer.searchFiles(searchRequest.getQuery()));
+                    ArrayList<SearchResult> results = DirectoryServer.searchFiles(searchRequest.getQuery());
+                    response = SearchResponse.createMessage(results);
+
+                    System.out.println("Searched For \"" + searchRequest.getQuery() + "\" Received Results: " + results.size());
 
                     break;
                 case UpdateList:
@@ -66,6 +73,8 @@ public class ServerProcessRequestThread extends Thread {
 
                     // Update Directory with files and create response message
                     response = UpdateFilesResponse.createMessage(DirectoryServer.updateFiles(updateFilesRequest.getUpdateFiles(), updateFilesRequest.getComputerUUID()));
+
+                    System.out.println("Updated Files " + updateFilesRequest.getUpdateFiles().size() + " For UUID: " + updateFilesRequest.getComputerUUID());
 
                     break;
             }
