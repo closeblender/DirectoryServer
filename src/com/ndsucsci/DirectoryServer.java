@@ -7,6 +7,8 @@ import com.ndsucsci.server.Directory;
 import com.ndsucsci.server.ServerMainThread;
 import com.ndsucsci.server.ServerPingThread;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -22,6 +24,12 @@ public class DirectoryServer {
 
         // Init Directory
         directory = new Directory();
+
+        try {
+            System.out.println("Starting Server On IP: " + InetAddress.getLocalHost().getHostAddress().toString());
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
 
         // Create Search and Registration (Main Connection Thread)
         ServerMainThread serverMainThread = new ServerMainThread(9090);
