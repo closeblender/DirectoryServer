@@ -25,7 +25,7 @@ local.properties
 *.iml
 *.ipr
 *.iws
-.idea/
+#.idea/
 
 cache.bytes
 proxy.log
