@@ -14,7 +14,7 @@ public class TestClient {
 
     public static void main(String[] args) {
 
-        new ClientRegisterThread("192.168.1.7", 9090, new ClientRegisterThread.RegisterCallback() {
+        new ClientRegisterThread("127.0.0.1", 9090, new ClientRegisterThread.RegisterCallback() {
             @Override
             public void onRegistered(String computerUUID) {
                 System.out.println("Register Computer UUID: " + computerUUID);
@@ -26,9 +26,9 @@ public class TestClient {
 
     static void pingComputer(final String uuid) {
 
-        new ClientPingThread("192.168.1.7", 9091, uuid).start();
+        new ClientPingThread("127.0.0.1", 9091, uuid).start();
 
-        new ClientSearchThread("192.168.1.7", 9090, "test", new ClientSearchThread.SearchCallback() {
+        new ClientSearchThread("127.0.0.1", 9090, "test", new ClientSearchThread.SearchCallback() {
             @Override
             public void searchResults(ArrayList<SearchResult> searchResults) {
                 System.out.println("Total Search Results: " + searchResults.size());
@@ -44,7 +44,7 @@ public class TestClient {
         UpdateFile file = new UpdateFile("test.txt", "1KB", true);
         files.add(file);
 
-        new ClientUpdateFileThread("192.168.1.7", 9090, files, uuid, new ClientUpdateFileThread.UpdateFilesCallback() {
+        new ClientUpdateFileThread("127.0.0.1", 9090, files, uuid, new ClientUpdateFileThread.UpdateFilesCallback() {
             @Override
             public void onUpdate(boolean updated) {
                 System.out.println("Updated Files: " + updated);

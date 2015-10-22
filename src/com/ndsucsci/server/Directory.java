@@ -19,12 +19,12 @@ public class Directory {
     }
 
     public boolean updateFile(UpdateFile file, String computerUUID) {
-        ArrayList<DirectoryFile> userFiles;
-        if(!directory.containsKey(computerUUID)) {
-            userFiles = new ArrayList<DirectoryFile>();
-        } else {
-            userFiles = directory.get(computerUUID);
-        }
+        ArrayList<DirectoryFile> userFiles = new ArrayList<DirectoryFile>();
+//        if(!directory.containsKey(computerUUID)) {
+//            userFiles = new ArrayList<DirectoryFile>();
+//        } else {
+//            userFiles = directory.get(computerUUID);
+//        }
 
         if(file.add) {
             // Make sure it isn't already there
