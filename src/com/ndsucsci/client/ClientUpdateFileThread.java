@@ -53,11 +53,7 @@ public class ClientUpdateFileThread extends Thread {
 
             // Get response
             UpdateFilesResponse updateFilesResponse = new UpdateFilesResponse();
-            byte[] data = new byte[1024];
-            while(!updateFilesResponse.receivedRequest()) {
-                int length = inFromServer.read(data, 0, data.length);
-                updateFilesResponse.receivedBytes(data, length);
-            }
+            updateFilesResponse.getBytesFromInput(inFromServer);
 
             callback.onUpdate(updateFilesResponse.getResult());
 

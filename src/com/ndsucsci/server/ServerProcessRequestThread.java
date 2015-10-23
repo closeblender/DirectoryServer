@@ -34,12 +34,7 @@ public class ServerProcessRequestThread extends Thread {
 
             // Get request
             ServerRequest serverRequest = new ServerRequest();
-
-            byte[] data = new byte[1024];
-            while(!serverRequest.receivedRequest()) {
-                int length = inFromClient.read(data, 0, data.length);
-                serverRequest.receivedBytes(data, length);
-            }
+            serverRequest.getBytesFromInput(inFromClient);
 
             // Process Request
             byte[] response = new byte[0];

@@ -1,5 +1,6 @@
 package com.ndsucsci;
 
+import com.ndsucsci.client.ClientRegisterThread;
 import com.ndsucsci.objects.SearchResult;
 import com.ndsucsci.objects.UpdateFile;
 import com.ndsucsci.objects.User;
@@ -18,6 +19,7 @@ public class DirectoryServer {
     static Directory directory;
 
     public static void main(String[] args) {
+
 
         // Init Users
         users = new ArrayList<>();
@@ -91,6 +93,5 @@ public class DirectoryServer {
         }
         return false;
     }
-
 
 }

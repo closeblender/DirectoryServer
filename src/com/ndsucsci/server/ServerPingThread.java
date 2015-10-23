@@ -24,6 +24,7 @@ public class ServerPingThread extends Thread {
 
     public void run() {
 
+
         try {
             pingSocket = new DatagramSocket(serverPort);
             System.out.println("Started UDP Socket Listening to Port: " + serverPort);

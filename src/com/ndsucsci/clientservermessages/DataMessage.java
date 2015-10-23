@@ -3,6 +3,7 @@ package com.ndsucsci.clientservermessages;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
@@ -21,7 +22,15 @@ public class DataMessage {
         allData = new ArrayList<>();
     }
 
-    public void receivedBytes(byte[] bytes, int dataLength) {
+    public void getBytesFromInput(InputStream is) throws IOException {
+        byte[] data = new byte[1024];
+        while(!receivedRequest()) {
+            int length = is.read(data, 0, data.length);
+            receivedBytes(data, length);
+        }
+    }
+
+    void receivedBytes(byte[] bytes, int dataLength) {
 
         int processedBytes = 0;
 

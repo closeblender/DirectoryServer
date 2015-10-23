@@ -51,11 +51,7 @@ public class ClientSearchThread extends Thread {
 
             // Get response
             SearchResponse searchResponse = new SearchResponse();
-            byte[] data = new byte[1024];
-            while(!searchResponse.receivedRequest()) {
-                int length = inFromServer.read(data, 0, data.length);
-                searchResponse.receivedBytes(data, length);
-            }
+            searchResponse.getBytesFromInput(inFromServer);
 
             callback.searchResults(searchResponse.getSearchResults());
 

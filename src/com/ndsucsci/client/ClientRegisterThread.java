@@ -47,11 +47,8 @@ public class ClientRegisterThread extends Thread {
 
             // Get response
             RegisterResponse registerResponse = new RegisterResponse();
-            byte[] data = new byte[1024];
-            while(!registerResponse.receivedRequest()) {
-                int length = inFromServer.read(data, 0, data.length);
-                registerResponse.receivedBytes(data, length);
-            }
+            registerResponse.getBytesFromInput(inFromServer);
+
 
             callback.onRegistered(registerResponse.getComputerUUID());
 
