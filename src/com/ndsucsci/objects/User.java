@@ -1,11 +1,12 @@
 package com.ndsucsci.objects;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by closestudios on 10/10/15.
  */
-public class User {
+public class User  implements Serializable{
     public String uuid;
     public String ipAddress;
     long lastPing;

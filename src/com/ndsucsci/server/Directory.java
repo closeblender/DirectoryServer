@@ -4,13 +4,14 @@ import com.ndsucsci.objects.SearchResult;
 import com.ndsucsci.objects.UpdateFile;
 import com.ndsucsci.objects.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
  * Created by closestudios on 10/10/15.
  */
-public class Directory {
+public class Directory implements Serializable{
 
     HashMap<String,ArrayList<DirectoryFile>> directory;
 
@@ -83,7 +84,7 @@ public class Directory {
         return false;
     }
 
-    public class DirectoryFile {
+    public class DirectoryFile implements Serializable{
         public String filename;
         public String filesize;
         public DirectoryFile() {

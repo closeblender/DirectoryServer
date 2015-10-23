@@ -80,6 +80,8 @@ public class ServerProcessRequestThread extends Thread {
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
             if(clientSocket != null) {
                 try {

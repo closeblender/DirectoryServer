@@ -43,7 +43,11 @@ public class ServerPingThread extends Thread {
                 String userUUID = new String(pingMessage);
                 System.out.println("Received Ping From: " + userUUID);
 
-                DirectoryServer.pingUser(userUUID, packet.getAddress().getHostAddress());
+                try {
+                    DirectoryServer.pingUser(userUUID, packet.getAddress().getHostAddress());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
             }
 
