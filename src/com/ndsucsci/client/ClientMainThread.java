@@ -28,9 +28,7 @@ public class ClientMainThread extends Thread {
             try {
                 //listen for incoming connections
                 Socket acceptedSocket = clientSocket.accept();
-                
-                //send file requested
-
+                new ClientSendFileThread(acceptedSocket);
             } catch (Exception e) {
                 e.printStackTrace();
             }

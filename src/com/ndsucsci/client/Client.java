@@ -40,6 +40,7 @@ public class Client {
 
                 //ping server and allow user to enter commands
                 pingComputer(computerUUID);
+                new ClientMainThread(9093).start();
                 clientHasRegistered();
             }
         }).start();
@@ -60,6 +61,8 @@ public class Client {
                 clientSearch();
             } else if(request.equals("add")) {
                 clientAddFiles();
+            } else if(request.equals("download")) {
+                clientDownloadFile();
             }
         }
     }
@@ -102,6 +105,21 @@ public class Client {
                 }
             }).start();
         }
+    }
+
+    private static void clientDownloadFile() {
+        //get ip address
+        System.out.print("Type peer's IPAddress: ");
+        Scanner userInput = new Scanner(System.in);
+        String address = userInput.nextLine();
+
+        //get filename
+        System.out.println("Type file name: ");
+        userInput = new Scanner(System.in);
+        String fileName = userInput.nextLine();
+
+        //create download thread
+        new ClientDownloadFileThread(address, 9092, fileName).start();
     }
 
     private static void pingComputer(String uuid) {
