@@ -34,20 +34,30 @@ public class ClientDownloadFileThread extends Thread {
 
             //send filename
             OutputStream os = downloadSocket.getOutputStream();
-            DownloadFileRequest request = new DownloadFileRequest();
-            request.createMessage(filename);
+            os.write(DownloadFileRequest.createMessage(filename));
 
             //get file response
             DownloadFileResponse response = new DownloadFileResponse();
             InputStream is = downloadSocket.getInputStream();
             response.getBytesFromInput(is);
-            OutputStream fileOutput = new FileOutputStream("share/" + filename);
-            fileOutput.write(response.getDataBytes());
 
-            //check if file exists
-            if((new File("share/" + filename)).exists()) {
-                System.out.println("Recieved File");
+            if(response.foundFile()) {
+                System.out.println("Peer Sent File: " + filename);
+
+
+                OutputStream fileOutput = new FileOutputStream("share/" + filename);
+                fileOutput.write(response.getFile());
+
+                //check if file exists
+                if((new File("share/" + filename)).exists()) {
+                    System.out.println("Recieved File");
+                }
+
+            } else {
+                System.out.println("Peer Did Not Send File: " + filename);
+
             }
+
 
             downloadSocket.close();
 

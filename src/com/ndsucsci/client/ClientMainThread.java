@@ -30,7 +30,7 @@ public class ClientMainThread extends Thread {
                 //listen for incoming connections
                 Socket acceptedSocket = clientSocket.accept();
                 System.out.println("Peer to Peer Connected.");
-                new ClientSendFileThread(acceptedSocket);
+                new ClientSendFileThread(acceptedSocket).start();
             } catch (Exception e) {
                 e.printStackTrace();
             }

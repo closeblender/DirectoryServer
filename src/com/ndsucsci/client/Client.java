@@ -40,7 +40,7 @@ public class Client {
 
                 //ping server and allow user to enter commands
                 pingComputer(computerUUID);
-                new ClientMainThread(9093).start();
+                new ClientMainThread(9092).start();
                 clientHasRegistered();
             }
         }).start();
