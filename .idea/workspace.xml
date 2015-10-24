@@ -6,9 +6,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientMainThread.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientMainThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientRegisterThread.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientRegisterThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientSendFileThread.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientSendFileThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.java" afterPath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientMainThread.java" afterPath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientMainThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientRegisterThread.java" afterPath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientRegisterThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DirectoryApplication.iws" />
@@ -648,7 +645,13 @@
       <option name="project" value="LOCAL" />
       <updated>1445726636360</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added some debugging response info for if a client is already running or if a server isn't found.">
+      <created>1445727593626</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1445727593626</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -697,7 +700,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updates Trevor's added logging to use logln()" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates Trevor's added logging to use logln()" />
+    <MESSAGE value="Added some debugging response info for if a client is already running or if a server isn't found." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some debugging response info for if a client is already running or if a server isn't found." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
