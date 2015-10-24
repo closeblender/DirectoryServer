@@ -45,7 +45,7 @@ public class DataMessage {
             processedBytes ++;
         }
 
-        System.out.println("Received " + allData.size() + "/" + getDataLength());
+        //System.out.println("Received " + allData.size() + "/" + getDataLength());
 
     }
 

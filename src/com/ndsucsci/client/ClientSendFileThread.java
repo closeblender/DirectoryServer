@@ -3,14 +3,12 @@ package com.ndsucsci.client;
 /**
  * Created by Trevor on 10/22/15.
  */
+import com.ndsucsci.clientservermessages.DataMessage;
 import com.ndsucsci.clientservermessages.DownloadFileRequest;
 import com.ndsucsci.clientservermessages.DownloadFileResponse;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
-import java.io.File;
 
 public class ClientSendFileThread extends Thread {
     Socket peerSocket = null;
@@ -27,16 +25,38 @@ public class ClientSendFileThread extends Thread {
             DownloadFileRequest dfr = new DownloadFileRequest();
             dfr.getBytesFromInput(is);
 
+            System.out.println(dfr.getFileName());
+
             File sendFile = new File("share/" + dfr.getFileName());
+            byte[] message;
             if(sendFile.exists()) {
+                System.out.println("Found File");
                 InputStream fileStream = new FileInputStream(sendFile);
-                DownloadFileResponse response = new DownloadFileResponse();
-                response.getBytesFromInput(fileStream);
-                os.write(response.getDataBytes(), 0, response.getDataBytes().length);
+
+                ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+
+                int nRead;
+                byte[] data = new byte[16384];
+
+                while ((nRead = fileStream.read(data, 0, data.length)) != -1) {
+                    buffer.write(data, 0, nRead);
+                }
+
+                buffer.flush();
+
+                message = DownloadFileResponse.createMessage(true, buffer.toByteArray());
+                System.out.println("File sent.");
+            } else {
+                System.out.println("File Not Found");
+                message = DownloadFileResponse.createMessage(false, new byte[0]);
             }
 
-        } catch (Exception e) {
+            os.write(message, 0, message.length);
 
+            peerSocket.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
