@@ -30,7 +30,7 @@ public class ClientSendFileThread extends Thread {
             File sendFile = new File("share/" + dfr.getFileName());
             byte[] message;
             if(sendFile.exists()) {
-                System.out.println("Found File");
+                Client.frame.logln("Found File");
                 InputStream fileStream = new FileInputStream(sendFile);
 
                 ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -45,9 +45,9 @@ public class ClientSendFileThread extends Thread {
                 buffer.flush();
 
                 message = DownloadFileResponse.createMessage(true, buffer.toByteArray());
-                System.out.println("File sent.");
+                Client.frame.logln("File sent.");
             } else {
-                System.out.println("File Not Found");
+                Client.frame.logln("File Not Found");
                 message = DownloadFileResponse.createMessage(false, new byte[0]);
             }
 

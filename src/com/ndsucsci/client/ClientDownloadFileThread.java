@@ -30,7 +30,7 @@ public class ClientDownloadFileThread extends Thread {
         try {
             downloadSocket = new Socket("127.0.0.1", 9092);
 
-            System.out.println("Downloading " + filename);
+            Client.frame.logln("Downloading " + filename);
 
             //send filename
             OutputStream os = downloadSocket.getOutputStream();
@@ -42,7 +42,7 @@ public class ClientDownloadFileThread extends Thread {
             response.getBytesFromInput(is);
 
             if(response.foundFile()) {
-                System.out.println("Peer Sent File: " + filename);
+                Client.frame.logln("Peer Sent File: " + filename);
 
 
                 OutputStream fileOutput = new FileOutputStream("share/" + filename);
@@ -50,11 +50,11 @@ public class ClientDownloadFileThread extends Thread {
 
                 //check if file exists
                 if((new File("share/" + filename)).exists()) {
-                    System.out.println("Recieved File");
+                    Client.frame.logln("Received File");
                 }
 
             } else {
-                System.out.println("Peer Did Not Send File: " + filename);
+                Client.frame.logln("Peer Did Not Send File: " + filename);
 
             }
 
