@@ -20,6 +20,7 @@ public class ClientMainThread extends Thread {
     public void run() {
         try {
             clientSocket = new ServerSocket(portNo);
+            System.out.println("Client listening for peers.");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -28,6 +29,7 @@ public class ClientMainThread extends Thread {
             try {
                 //listen for incoming connections
                 Socket acceptedSocket = clientSocket.accept();
+                System.out.println("Peer to Peer Connected.");
                 new ClientSendFileThread(acceptedSocket);
             } catch (Exception e) {
                 e.printStackTrace();

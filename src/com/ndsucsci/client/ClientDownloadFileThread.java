@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.io.File;
 
 /**
  * Created by Trevor on 10/23/15.
@@ -29,6 +30,8 @@ public class ClientDownloadFileThread extends Thread {
         try {
             downloadSocket = new Socket("127.0.0.1", 9092);
 
+            System.out.println("Downloading " + filename);
+
             //send filename
             OutputStream os = downloadSocket.getOutputStream();
             DownloadFileRequest request = new DownloadFileRequest();
@@ -40,6 +43,13 @@ public class ClientDownloadFileThread extends Thread {
             response.getBytesFromInput(is);
             OutputStream fileOutput = new FileOutputStream("share/" + filename);
             fileOutput.write(response.getDataBytes());
+
+            //check if file exists
+            if((new File("share/" + filename)).exists()) {
+                System.out.println("Recieved File");
+            }
+
+            downloadSocket.close();
 
         } catch (Exception e) {
             e.printStackTrace();

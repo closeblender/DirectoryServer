@@ -33,7 +33,10 @@ public class ClientSendFileThread extends Thread {
                 DownloadFileResponse response = new DownloadFileResponse();
                 response.getBytesFromInput(fileStream);
                 os.write(response.getDataBytes(), 0, response.getDataBytes().length);
+                System.out.println("File sent.");
             }
+
+            peerSocket.close();
 
         } catch (Exception e) {
 
