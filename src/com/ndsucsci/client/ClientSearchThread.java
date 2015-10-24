@@ -36,7 +36,7 @@ public class ClientSearchThread extends Thread {
     public void run() {
 
         // Print out what you are doing
-        System.out.println("Search File");
+        Client.frame.logln("Search File");
 
         try {
 

@@ -12,12 +12,17 @@ public class Client {
 
     private static String uuid = null;
     private static File shareFolder = new File("share");
-
+    public static ClientFrame frame = new ClientFrame();
 
     public static void main(String[] args) {
+        frame.pack();
+        frame.setVisible(true);
+    }
 
-        String hostName = "127.0.0.1";
-        int portNo = 9090;
+    public static void connect(){
+
+        String hostName = frame.hostTextField.getText();
+        int portNo = Integer.parseInt(frame.portTextField.getText());
 
         //register client
         new ClientRegisterThread(hostName, portNo, new ClientRegisterThread.RegisterCallback() {
@@ -25,7 +30,7 @@ public class Client {
             public void onRegistered(String computerUUID) {
                 //need to cache uuid
 
-                System.out.println("Register Computer UUID: " + computerUUID);
+                frame.logln("Register Computer UUID: " + computerUUID);
                 uuid = computerUUID;
 
                 //create share folder
@@ -69,13 +74,13 @@ public class Client {
 
     private static void clientSearch() {
         //ask for file name then call search thread
-        System.out.print("Type file to search for: ");
+        frame.log("Type file to search for: ");
         Scanner userInput = new Scanner(System.in);
         new ClientSearchThread("127.0.0.1", 9090, userInput.nextLine(), new ClientSearchThread.SearchCallback() {
             @Override
             public void searchResults(ArrayList<SearchResult> searchResults) {
-                System.out.println("Total Search Results: " + searchResults.size());
-                System.out.println(searchResults);
+                frame.logln("Total Search Results: " + searchResults.size());
+                frame.logln(searchResults.toString());
             }
         }).start();
     }
@@ -83,7 +88,7 @@ public class Client {
     private static void clientAddFiles() {
         boolean addMore = true;
         ArrayList<UpdateFile> files = new ArrayList<>();
-        System.out.println("Make sure all files being added are located in your share folder.");
+        frame.logln("Make sure all files being added are located in your share folder.");
         //get and add files from share folder
         if(shareFolder.exists()) {
             if(shareFolder.listFiles().length > 0) {
@@ -91,17 +96,17 @@ public class Client {
                     files.add(new UpdateFile(file.getName(), Long.toString(file.length()), true));
                 }
             } else {
-                System.out.println("Share folder is empty. You have nothing to add.");
+                frame.logln("Share folder is empty. You have nothing to add.");
             }
 
         } else {
-            System.out.println("Share folder doesn't exist.");
+            frame.logln("Share folder doesn't exist.");
         }
 
         if(files.size() > 0) {
             new ClientUpdateFileThread("127.0.0.1", 9090, files, uuid, new ClientUpdateFileThread.UpdateFilesCallback() {
                 public void onUpdate(boolean updated) {
-                    System.out.println("Updated Files: " + updated);
+                    frame.logln("Updated Files: " + updated);
                 }
             }).start();
         }
@@ -109,12 +114,12 @@ public class Client {
 
     private static void clientDownloadFile() {
         //get ip address
-        System.out.print("Type peer's IPAddress: ");
+        frame.log("Type peer's IPAddress: ");
         Scanner userInput = new Scanner(System.in);
         String address = userInput.nextLine();
 
         //get filename
-        System.out.println("Type file name: ");
+        frame.logln("Type file name: ");
         userInput = new Scanner(System.in);
         String fileName = userInput.nextLine();
 

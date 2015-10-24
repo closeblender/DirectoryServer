@@ -28,7 +28,7 @@ public class ClientPingThread extends Thread {
     public void run() {
 
         // Print out what you are doing
-        System.out.println("Ping Server");
+        Client.frame.logln("Ping Server");
 
         try {
 

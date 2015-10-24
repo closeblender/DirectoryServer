@@ -38,7 +38,7 @@ public class ClientUpdateFileThread extends Thread {
     public void run() {
 
         // Print out what you are doing
-        System.out.println("Update Files");
+        Client.frame.logln("Update Files");
 
         try {
 

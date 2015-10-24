@@ -32,7 +32,7 @@ public class ClientRegisterThread extends Thread {
     public void run() {
 
         // Print out what you are doing
-        System.out.println("Register Client");
+        Client.frame.logln("Register Client");
 
         try {
 
