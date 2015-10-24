@@ -60,4 +60,8 @@ public class ClientFrame extends JFrame {
         log.append(s);
         System.out.print(s);
     }
+
+    public void ConnectReset(){
+        buttonConnect.setEnabled(true);
+    }
 }
