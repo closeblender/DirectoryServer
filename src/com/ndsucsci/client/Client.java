@@ -60,39 +60,23 @@ public class Client {
                 new ClientMainThread(9092).start();
                 clientAddFiles();
                 clientSearch("*");
-//                clientHasRegistered();
             }
         }).start();
     }
 
-//    private static void clientHasRegistered() {
-//        System.out.println("Type in help to view commands.");
-//        while (true) {
-//            //prompt user for command
-//            Scanner userInput = new Scanner(System.in);
-//            String request = userInput.nextLine().toLowerCase();
-//
-//            //respond to request
-//            if (request.equals("help")) {
-//                System.out.println("Display help menu - help\nSearch for file - search\nadd file - add\ndownload file - download\n");
-//            } else if(request.equals("search")) {
-//                //find file client wants to search for
-//                clientSearch();
-//            } else if(request.equals("add")) {
-//                clientAddFiles();
-//            } else if(request.equals("download")) {
-//                clientDownloadFile();
-//            }
-//        }
-//    }
-
     static void clientSearch(String fileName) {
-        //ask for file name then call search thread
-//        frame.log("Type file to search for: ");
-//        Scanner userInput = new Scanner(System.in);
         new ClientSearchThread("127.0.0.1", 9090, fileName, new ClientSearchThread.SearchCallback() {
             @Override
             public void searchResults(ArrayList<SearchResult> searchResults) {
+                //add search results to file and peer list
+                DefaultListModel filesJlist = new DefaultListModel();
+                DefaultListModel peersJlist = new DefaultListModel();
+                for (SearchResult sr : searchResults) {
+                    filesJlist.addElement(sr.filename);
+                    peersJlist.addElement(sr.ipAddress);
+                }
+                frame.filesList.setModel(filesJlist);
+                frame.peersList.setModel(peersJlist);
                 frame.logln("Total Search Results: " + searchResults.size());
                 frame.logln(searchResults.toString());
             }
@@ -100,7 +84,6 @@ public class Client {
     }
 
     public static void clientAddFiles() {
-        boolean addMore = true;
         DefaultListModel filesJlist = new DefaultListModel();
         ArrayList<UpdateFile> files = new ArrayList<>();
         frame.logln("Make sure all files being added are located in your share folder.");
@@ -138,18 +121,7 @@ public class Client {
         return new DecimalFormat("#,##0.#").format(size/Math.pow(1024, digitGroups)) + units[digitGroups];
     }
 
-    static void clientDownloadFile(String fileName) {
-        //get ip address
-//        frame.log("Type peer's IPAddress: ");
-//        Scanner userInput = new Scanner(System.in);
-//        String address = userInput.nextLine();
-
-        //get filename
-//        frame.logln("Type file name: ");
-//        userInput = new Scanner(System.in);
-//        String fileName = userInput.nextLine();
-//
-        //create download thread
+    static void clientDownloadFile(String address, String fileName) {
         new ClientDownloadFileThread("127.0.0.1", 9092, fileName).start();
     }
 

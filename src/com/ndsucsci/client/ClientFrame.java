@@ -31,7 +31,7 @@ public class ClientFrame extends JFrame {
         });
 
         downloadButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {onDownload(!filesList.isSelectionEmpty());}
+            public void actionPerformed(ActionEvent e) {onDownload();}
         });
 
         searchButton.addActionListener(new ActionListener() {
@@ -79,14 +79,14 @@ public class ClientFrame extends JFrame {
         Client.clientAddFiles();
     }
 
-    private void onDownload(Boolean selected) {
-//        String address = JOptionPane.showInputDialog("Type client ip address.", "*");
-        //download file
-        if(selected) {
+    private void onDownload() {
+        String address = peersList.getSelectedValue().toString();
+        if(!filesList.isSelectionEmpty() && !peersList.isSelectionEmpty()) {
             String fileName = filesList.getSelectedValue().toString();
-            Client.clientDownloadFile(fileName);
+            String peerAddress = peersList.getSelectedValue().toString();
+            Client.clientDownloadFile(peerAddress, fileName);
         } else {
-            logln("Please choose a file to download then try again.");
+            logln("Please choose a file to download and a peer's address then try again.");
         }
     }
 
