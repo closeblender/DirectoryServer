@@ -54,7 +54,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="67b99" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="67b99" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -66,7 +66,7 @@
             <children>
               <scrollpane id="ea04f">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
@@ -74,10 +74,7 @@
                   <component id="229ba" class="javax.swing.JList" binding="filesList">
                     <constraints/>
                     <properties>
-                      <model>
-                        <item value="bob"/>
-                        <item value="alex"/>
-                      </model>
+                      <model/>
                     </properties>
                     <clientProperties>
                       <List.isFileList class="java.lang.Boolean" value="true"/>
@@ -87,7 +84,7 @@
               </scrollpane>
               <scrollpane id="868ab">
                 <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
@@ -95,13 +92,27 @@
                   <component id="22cb0" class="javax.swing.JList" binding="peersList">
                     <constraints/>
                     <properties>
-                      <model>
-                        <item value="apple"/>
-                      </model>
+                      <model/>
                     </properties>
                   </component>
                 </children>
               </scrollpane>
+              <component id="a7b02" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Files directory: (Double click to download locally)"/>
+                </properties>
+              </component>
+              <component id="2050b" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Peers"/>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="dc561" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

@@ -61,12 +61,24 @@ public class Directory implements Serializable{
         Object[] keys = directory.keySet().toArray();
         for(int i=0;i<keys.length;i++) {
             ArrayList<DirectoryFile> files = directory.get(keys[i]);
-            for(int j=0;j<files.size();j++) {
-                // Check if contains the query
-                if(files.get(j).filename.toLowerCase().contains(query.toLowerCase())) {
-                    if(isUserOnline(users, (String) keys[i])) {
-                        // Add to search
-                        searchResults.add(new SearchResult(files.get(j).filename, files.get(j).filesize, (String) keys[i]));
+            // Branch if querying all files to return all file listings
+            if(query.equals("*")) {
+                for(int j=0;j<files.size();j++) {
+                        if(isUserOnline(users, (String) keys[i])) {
+                            // Add to search
+                            searchResults.add(new SearchResult(files.get(j).filename, files.get(j).filesize, (String) keys[i]));
+                        }
+                }
+
+            }
+            else {
+                for (int j = 0; j < files.size(); j++) {
+                    // Check if contains the query
+                    if (files.get(j).filename.toLowerCase().contains(query.toLowerCase())) {
+                        if (isUserOnline(users, (String) keys[i])) {
+                            // Add to search
+                            searchResults.add(new SearchResult(files.get(j).filename, files.get(j).filesize, (String) keys[i]));
+                        }
                     }
                 }
             }

@@ -47,6 +47,7 @@ public class ClientFrame extends JFrame {
         buttonConnect.setEnabled(false);
         Client.connect();
         Client.clientAddFiles();
+        //Client.
     }
 
     private void onExit() {
