@@ -3,9 +3,10 @@ package com.ndsucsci.client;
 
 import com.ndsucsci.objects.SearchResult;
 import com.ndsucsci.objects.UpdateFile;
+import com.ndsucsci.server.Directory;
 
 import javax.swing.*;
-import java.io.File;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -22,46 +23,11 @@ public class Client {
     }
 
     public static void connect(){
-
-        String hostName = frame.hostTextField.getText();
-        int portNo = Integer.parseInt(frame.portTextField.getText());
-
-        //register client
-        new ClientRegisterThread(hostName, portNo, new ClientRegisterThread.RegisterCallback() {
-            @Override
-            public void onRegistered(String computerUUID) {
-                //need to cache uuid
-
-                frame.logln("Register Computer UUID: " + computerUUID);
-                uuid = computerUUID;
-
-                //create share folder
-                //get files from sharefolder
-                if(!shareFolder.exists()) {
-                    try {
-                        shareFolder.mkdir();
-                        frame.logln("Created share folder");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                //testing share folder
-                if(shareFolder.exists()) {
-                    try {
-                        frame.logln("share folder exists");
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                //ping server and allow user to enter commands
-                pingComputer(computerUUID);
-                new ClientMainThread(9092).start();
-                clientAddFiles();
-                clientSearch("*");
-            }
-        }).start();
+        try {
+            checkForID();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     static void clientSearch(String fileName) {
@@ -127,6 +93,71 @@ public class Client {
 
     private static void pingComputer(String uuid) {
         new ClientPingThread("127.0.0.1", 9091, uuid).start();
+    }
+
+    public static void checkForID() throws IOException, ClassNotFoundException {
+        File file = new File("uuid.bytes");
+        if(file.exists()) {
+            System.out.println("Loaded uuid!");
+            FileInputStream f = new FileInputStream(file);
+            ObjectInputStream s = new ObjectInputStream(f);
+            ClientID c = (ClientID) s.readObject();
+            s.close();
+            uuid = c.uuid;
+        } else {
+            System.out.println("New uuid!");
+
+            String hostName = frame.hostTextField.getText();
+            int portNo = Integer.parseInt(frame.portTextField.getText());
+
+            //register client
+            new ClientRegisterThread(hostName, portNo, new ClientRegisterThread.RegisterCallback() {
+                @Override
+                public void onRegistered(String computerUUID) {
+                    //need to cache uuid
+                    try {
+                        ClientID clientID = new ClientID(computerUUID);
+                        File file = new File("uuid.bytes");
+                        FileOutputStream f = new FileOutputStream(file);
+                        ObjectOutputStream s = new ObjectOutputStream(f);
+                        s.writeObject(clientID);
+                        s.close();
+                        System.out.println("Save uuid.");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    frame.logln("Register Computer UUID: " + computerUUID);
+                    uuid = computerUUID;
+
+                    //create share folder
+                    //get files from sharefolder
+                    if(!shareFolder.exists()) {
+                        try {
+                            shareFolder.mkdir();
+                            frame.logln("Created share folder");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    //testing share folder
+                    if(shareFolder.exists()) {
+                        try {
+                            frame.logln("share folder exists");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    //ping server and allow user to enter commands
+                    pingComputer(computerUUID);
+                    new ClientMainThread(9092).start();
+                    clientAddFiles();
+                    clientSearch("*");
+                }
+            }).start();
+        }
     }
 
 }
