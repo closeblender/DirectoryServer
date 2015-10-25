@@ -171,7 +171,7 @@
                   </grid>
                 </constraints>
                 <properties>
-                  <text value="localhost"/>
+                  <text value="lab01.cs.ndsu.nodak.edu"/>
                 </properties>
               </component>
               <component id="68f86" class="javax.swing.JTextField" binding="portTextField">
