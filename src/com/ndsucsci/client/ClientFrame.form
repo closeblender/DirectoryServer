@@ -71,9 +71,17 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="229ba" class="javax.swing.JList" binding="files">
+                  <component id="229ba" class="javax.swing.JList" binding="filesList">
                     <constraints/>
-                    <properties/>
+                    <properties>
+                      <model>
+                        <item value="bob"/>
+                        <item value="alex"/>
+                      </model>
+                    </properties>
+                    <clientProperties>
+                      <List.isFileList class="java.lang.Boolean" value="true"/>
+                    </clientProperties>
                   </component>
                 </children>
               </scrollpane>
@@ -84,9 +92,13 @@
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="22cb0" class="javax.swing.JList" binding="peers">
+                  <component id="22cb0" class="javax.swing.JList" binding="peersList">
                     <constraints/>
-                    <properties/>
+                    <properties>
+                      <model>
+                        <item value="apple"/>
+                      </model>
+                    </properties>
                   </component>
                 </children>
               </scrollpane>

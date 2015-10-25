@@ -1,14 +1,17 @@
 package com.ndsucsci.client;
 
+import com.ndsucsci.objects.SearchResult;
+
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class ClientFrame extends JFrame {
     private JPanel contentPane;
     private JButton buttonConnect;
     private JButton buttonExit;
-    private JList files;
-    private JList peers;
+    public JList filesList;
+    public JList peersList;
     private JProgressBar progressBar1;
     private JTextArea log;
     public JTextField hostTextField;
@@ -20,13 +23,13 @@ public class ClientFrame extends JFrame {
 
         buttonConnect.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                onConnect();
             }
         });
 
         buttonExit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onCancel();
+                onExit();
             }
         });
 
@@ -34,18 +37,19 @@ public class ClientFrame extends JFrame {
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
-                onCancel();
+                onExit();
             }
         });
     }
 
-    private void onOK() {
+    private void onConnect() {
 // add your code here
         buttonConnect.setEnabled(false);
         Client.connect();
+        Client.clientAddFiles();
     }
 
-    private void onCancel() {
+    private void onExit() {
 // add your code here if necessary
         dispose();
         System.exit(0);

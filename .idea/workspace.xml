@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81d68402-fd22-4841-b4e8-35acc70bf309" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientDownloadFileThread.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientDownloadFileThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientMainThread.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientMainThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientRegisterThread.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientRegisterThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientSendFileThread.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientSendFileThread.class" />
+    <list default="true" id="81d68402-fd22-4841-b4e8-35acc70bf309" name="Default" comment="Displays local files">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/Client$1.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/Client$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/Client$2.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/Client$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/Client$3.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/Client$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/Client.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/Client.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientFrame$1.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientFrame$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientFrame$2.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientFrame$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientFrame$3.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientFrame$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientFrame.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientFrame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientSearchThread.class" afterPath="$PROJECT_DIR$/out/production/DirectoryApplication/com/ndsucsci/client/ClientSearchThread.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ndsucsci/client/Client.java" afterPath="$PROJECT_DIR$/src/com/ndsucsci/client/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.form" afterPath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.java" afterPath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientSearchThread.java" afterPath="$PROJECT_DIR$/src/com/ndsucsci/client/ClientSearchThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DirectoryApplication.iws" />
@@ -33,13 +42,24 @@
         <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+              <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1593#1594#0" expanded="true" />
-                <element signature="e#1639#1640#0" expanded="true" />
+                <element signature="e#898#899#0" expanded="true" />
+                <element signature="e#938#939#0" expanded="true" />
+                <element signature="e#1150#1151#0" expanded="true" />
+                <element signature="e#1190#1191#0" expanded="true" />
+                <element signature="e#1707#1708#0" expanded="true" />
+                <element signature="e#1753#1754#0" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientFrame.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -57,19 +77,21 @@
         <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientSearchThread.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+              <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.22008547">
+              <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#5357#5358#0" expanded="true" />
+                <element signature="e#5426#5427#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,29 +101,17 @@
         <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientSendFileThread.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientMainThread.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientMainThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4914586">
-              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestClient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/TestClient.java">
+      <file leaf-file-name="ClientUpdateFileThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientUpdateFileThread.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+              <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -117,21 +127,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientUpdateFileThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientUpdateFileThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ClientDownloadFileThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientDownloadFileThread.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerRequest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/clientservermessages/ServerRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -166,17 +176,17 @@
         <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientGUI.form" />
         <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientDialog.java" />
         <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientPingThread.java" />
-        <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientSearchThread.java" />
         <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientUpdateFileThread.java" />
         <option value="$PROJECT_DIR$/src/com/ndsucsci/clientservermessages/DataMessage.java" />
-        <option value="$PROJECT_DIR$/src/com/ndsucsci/client/Client.java" />
-        <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.form" />
         <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientSendFileThread.java" />
         <option value="$PROJECT_DIR$/src/com/ndsucsci/client/TestClient.java" />
         <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientDownloadFileThread.java" />
         <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientRegisterThread.java" />
-        <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.java" />
         <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientMainThread.java" />
+        <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientSearchThread.java" />
+        <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.form" />
+        <option value="$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.java" />
+        <option value="$PROJECT_DIR$/src/com/ndsucsci/client/Client.java" />
       </list>
     </option>
   </component>
@@ -620,8 +630,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Application.Client" />
-        <item index="1" class="java.lang.String" itemvalue="Application.DirectoryServer" />
+        <item index="0" class="java.lang.String" itemvalue="Application.DirectoryServer" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Client" />
         <item index="2" class="java.lang.String" itemvalue="Application.TestClient" />
         <item index="3" class="java.lang.String" itemvalue="Application.ClientFrame" />
       </list>
@@ -669,7 +679,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32883817" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18153527" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18153527" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2046332" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -701,7 +711,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Updates Trevor's added logging to use logln()" />
     <MESSAGE value="Added some debugging response info for if a client is already running or if a server isn't found." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some debugging response info for if a client is already running or if a server isn't found." />
+    <MESSAGE value="Displays local files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Displays local files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -717,8 +728,14 @@
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ndsucsci/clientservermessages/ServerRequest.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -741,6 +758,8 @@
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5357#5358#0" expanded="true" />
+            <element signature="e#5426#5427#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -814,6 +833,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="69" column="92" selection-start-line="69" selection-start-column="92" selection-end-line="69" selection-end-column="92" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -861,6 +881,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -890,6 +911,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -924,26 +946,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/clientservermessages/ServerRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/clientservermessages/SearchResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/clientservermessages/SearchRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1017,30 +1023,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/server/ServerMainThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/server/ServerPingThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/server/ServerProcessRequestThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="69" column="92" selection-start-line="69" selection-start-column="92" selection-end-line="69" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/TestClient.java">
@@ -1051,18 +1038,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientUpdateFileThread.java">
+    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientMainThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/clientservermessages/SearchRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientSearchThread.java">
+    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/server/ServerMainThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/server/ServerProcessRequestThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="69" column="92" selection-start-line="69" selection-start-column="92" selection-end-line="69" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/clientservermessages/ServerRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1075,10 +1088,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientRegisterThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="35" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientSendFileThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1091,20 +1112,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/Client.java">
+    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientUpdateFileThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientRegisterThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="35" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
+          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -1112,21 +1123,40 @@
     <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="39" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
+          <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="e#1639#1640#0" expanded="true" />
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#938#939#0" expanded="true" />
+            <element signature="e#1150#1151#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+            <element signature="e#1707#1708#0" expanded="true" />
+            <element signature="e#1753#1754#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientMainThread.java">
+    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientSearchThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4914586">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/ClientFrame.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ndsucsci/client/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22008547">
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5357#5358#0" expanded="true" />
+            <element signature="e#5426#5427#0" expanded="true" />
           </folding>
         </state>
       </provider>

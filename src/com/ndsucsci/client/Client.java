@@ -4,7 +4,9 @@ package com.ndsucsci.client;
 import com.ndsucsci.objects.SearchResult;
 import com.ndsucsci.objects.UpdateFile;
 
+import javax.swing.*;
 import java.io.File;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -85,8 +87,9 @@ public class Client {
         }).start();
     }
 
-    private static void clientAddFiles() {
+    public static void clientAddFiles() {
         boolean addMore = true;
+        DefaultListModel filesJlist = new DefaultListModel();
         ArrayList<UpdateFile> files = new ArrayList<>();
         frame.logln("Make sure all files being added are located in your share folder.");
         //get and add files from share folder
@@ -94,7 +97,10 @@ public class Client {
             if(shareFolder.listFiles().length > 0) {
                 for(File file : shareFolder.listFiles()) {
                     files.add(new UpdateFile(file.getName(), Long.toString(file.length()), true));
+                    filesJlist.addElement(file.getName() + "  |  " + readableFileSize(file.length()));
                 }
+                //update immediately with local files
+                frame.filesList.setModel(filesJlist);
             } else {
                 frame.logln("Share folder is empty. You have nothing to add.");
             }
@@ -110,6 +116,14 @@ public class Client {
                 }
             }).start();
         }
+    }
+
+    //filesize helper function: http://stackoverflow.com/questions/3263892/format-file-size-as-mb-gb-etc
+    public static String readableFileSize(long size) {
+        if(size <= 0) return "0";
+        final String[] units = new String[] { "B", "kB", "MB", "GB", "TB" };
+        int digitGroups = (int) (Math.log10(size)/Math.log10(1024));
+        return new DecimalFormat("#,##0.#").format(size/Math.pow(1024, digitGroups)) + units[digitGroups];
     }
 
     private static void clientDownloadFile() {
