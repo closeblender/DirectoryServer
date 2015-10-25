@@ -30,6 +30,37 @@ public class Client {
         }
     }
 
+    private static void hasConnected() {
+        frame.logln("Register Computer UUID: " + uuid);
+        uuid = uuid;
+
+        //create share folder
+        //get files from sharefolder
+        if(!shareFolder.exists()) {
+            try {
+                shareFolder.mkdir();
+                frame.logln("Created share folder");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        //testing share folder
+        if(shareFolder.exists()) {
+            try {
+                frame.logln("share folder exists");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        //ping server and allow user to enter commands
+        pingComputer(uuid);
+        new ClientMainThread(9092).start();
+        clientAddFiles();
+        clientSearch("*");
+    }
+
     static void clientSearch(String fileName) {
         new ClientSearchThread("127.0.0.1", 9090, fileName, new ClientSearchThread.SearchCallback() {
             @Override
@@ -104,6 +135,9 @@ public class Client {
             ClientID c = (ClientID) s.readObject();
             s.close();
             uuid = c.uuid;
+
+            hasConnected();
+
         } else {
             System.out.println("New uuid!");
 
@@ -127,34 +161,8 @@ public class Client {
                         e.printStackTrace();
                     }
 
-                    frame.logln("Register Computer UUID: " + computerUUID);
                     uuid = computerUUID;
-
-                    //create share folder
-                    //get files from sharefolder
-                    if(!shareFolder.exists()) {
-                        try {
-                            shareFolder.mkdir();
-                            frame.logln("Created share folder");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    //testing share folder
-                    if(shareFolder.exists()) {
-                        try {
-                            frame.logln("share folder exists");
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    //ping server and allow user to enter commands
-                    pingComputer(computerUUID);
-                    new ClientMainThread(9092).start();
-                    clientAddFiles();
-                    clientSearch("*");
+                    hasConnected();
                 }
             }).start();
         }
