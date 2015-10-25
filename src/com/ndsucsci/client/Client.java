@@ -40,6 +40,16 @@ public class Client {
                 if(!shareFolder.exists()) {
                     try {
                         shareFolder.mkdir();
+                        frame.logln("Created share folder");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                //testing share folder
+                if(shareFolder.exists()) {
+                    try {
+                        frame.logln("share folder exists");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -112,7 +122,7 @@ public class Client {
         }
 
         if(files.size() > 0) {
-            new ClientUpdateFileThread("127.0.0.1", 9090, files, uuid, new ClientUpdateFileThread.UpdateFilesCallback() {
+            new ClientUpdateFileThread("127.0.0.1", 9090, files, "temp", new ClientUpdateFileThread.UpdateFilesCallback() {
                 public void onUpdate(boolean updated) {
                     frame.logln("Updated Files: " + updated);
                 }

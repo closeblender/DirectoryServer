@@ -61,8 +61,6 @@ public class ClientFrame extends JFrame {
 // add your code here
         buttonConnect.setEnabled(false);
         Client.connect();
-//        Client.clientAddFiles();
-        //Client.
     }
 
     private void onExit() {
