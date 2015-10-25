@@ -22,12 +22,8 @@ public class Client {
     }
 
     public static void connect(){
-
-        String hostName = frame.hostTextField.getText();
-        int portNo = Integer.parseInt(frame.portTextField.getText());
-
         //register client
-        new ClientRegisterThread(hostName, portNo, new ClientRegisterThread.RegisterCallback() {
+        new ClientRegisterThread(frame.hostTextField.getText(), Integer.parseInt(frame.portTextField.getText()), new ClientRegisterThread.RegisterCallback() {
             @Override
             public void onRegistered(String computerUUID) {
                 //need to cache uuid
@@ -88,7 +84,7 @@ public class Client {
         //ask for file name then call search thread
         frame.log("Type file to search for: ");
         Scanner userInput = new Scanner(System.in);
-        new ClientSearchThread("127.0.0.1", 9090, userInput.nextLine(), new ClientSearchThread.SearchCallback() {
+        new ClientSearchThread(frame.hostTextField.getText(), Integer.parseInt(frame.portTextField.getText()), userInput.nextLine(), new ClientSearchThread.SearchCallback() {
             @Override
             public void searchResults(ArrayList<SearchResult> searchResults) {
                 frame.logln("Total Search Results: " + searchResults.size());
@@ -120,7 +116,7 @@ public class Client {
         }
 
         if(files.size() > 0) {
-            new ClientUpdateFileThread("127.0.0.1", 9090, files, "temp", new ClientUpdateFileThread.UpdateFilesCallback() {
+            new ClientUpdateFileThread(frame.hostTextField.getText(), Integer.parseInt(frame.portTextField.getText()), files, "temp", new ClientUpdateFileThread.UpdateFilesCallback() {
                 public void onUpdate(boolean updated) {
                     frame.logln("Updated Files: " + updated);
                 }
@@ -152,7 +148,7 @@ public class Client {
     }
 
     private static void pingComputer(String uuid) {
-        new ClientPingThread("127.0.0.1", 9091, uuid).start();
+        new ClientPingThread(frame.hostTextField.getText(), 9091, uuid).start();
     }
 
 }

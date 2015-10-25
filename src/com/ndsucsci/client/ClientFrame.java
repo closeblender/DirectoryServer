@@ -48,6 +48,7 @@ public class ClientFrame extends JFrame {
         Client.connect();
         Client.clientAddFiles();
         //hardcoding for now
+        /*
         new ClientSearchThread("127.0.0.1", 9090, "*", new ClientSearchThread.SearchCallback() {
             @Override
             public void searchResults(ArrayList<SearchResult> searchResults) {
@@ -55,6 +56,7 @@ public class ClientFrame extends JFrame {
                 if (searchResults.size() > 0){ Client.frame.logln(searchResults.toString()); }
             }
         }).start();
+        */
     }
 
     private void onExit() {
