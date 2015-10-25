@@ -16,6 +16,9 @@ public class ClientFrame extends JFrame {
     private JTextArea log;
     public JTextField hostTextField;
     public JTextField portTextField;
+    private JButton downloadButton;
+    private JButton updateButton;
+    private JButton searchButton;
 
     public ClientFrame() {
         setContentPane(contentPane);
@@ -25,6 +28,18 @@ public class ClientFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 onConnect();
             }
+        });
+
+        downloadButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {onDownload(!filesList.isSelectionEmpty());}
+        });
+
+        searchButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {onSearch();}
+        });
+
+        updateButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {onUpdate();}
         });
 
         buttonExit.addActionListener(new ActionListener() {
@@ -46,7 +61,7 @@ public class ClientFrame extends JFrame {
 // add your code here
         buttonConnect.setEnabled(false);
         Client.connect();
-        Client.clientAddFiles();
+//        Client.clientAddFiles();
         //Client.
     }
 
@@ -54,6 +69,27 @@ public class ClientFrame extends JFrame {
 // add your code here if necessary
         dispose();
         System.exit(0);
+    }
+
+    private void onSearch() {
+        //search for file
+        String fileName = JOptionPane.showInputDialog("Type file name to search for.", "*");
+        Client.clientSearch(fileName);
+    }
+
+    private void onUpdate() {
+        Client.clientAddFiles();
+    }
+
+    private void onDownload(Boolean selected) {
+//        String address = JOptionPane.showInputDialog("Type client ip address.", "*");
+        //download file
+        if(selected) {
+            String fileName = filesList.getSelectedValue().toString();
+            Client.clientDownloadFile(fileName);
+        } else {
+            logln("Please choose a file to download then try again.");
+        }
     }
 
     public void logln(String s) {
@@ -68,5 +104,9 @@ public class ClientFrame extends JFrame {
 
     public void ConnectReset(){
         buttonConnect.setEnabled(true);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

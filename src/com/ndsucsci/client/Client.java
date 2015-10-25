@@ -48,37 +48,39 @@ public class Client {
                 //ping server and allow user to enter commands
                 pingComputer(computerUUID);
                 new ClientMainThread(9092).start();
-                clientHasRegistered();
+                clientAddFiles();
+                clientSearch("*");
+//                clientHasRegistered();
             }
         }).start();
     }
 
-    private static void clientHasRegistered() {
-        System.out.println("Type in help to view commands.");
-        while (true) {
-            //prompt user for command
-            Scanner userInput = new Scanner(System.in);
-            String request = userInput.nextLine().toLowerCase();
+//    private static void clientHasRegistered() {
+//        System.out.println("Type in help to view commands.");
+//        while (true) {
+//            //prompt user for command
+//            Scanner userInput = new Scanner(System.in);
+//            String request = userInput.nextLine().toLowerCase();
+//
+//            //respond to request
+//            if (request.equals("help")) {
+//                System.out.println("Display help menu - help\nSearch for file - search\nadd file - add\ndownload file - download\n");
+//            } else if(request.equals("search")) {
+//                //find file client wants to search for
+//                clientSearch();
+//            } else if(request.equals("add")) {
+//                clientAddFiles();
+//            } else if(request.equals("download")) {
+//                clientDownloadFile();
+//            }
+//        }
+//    }
 
-            //respond to request
-            if (request.equals("help")) {
-                System.out.println("Display help menu - help\nSearch for file - search\nadd file - add\ndownload file - download\n");
-            } else if(request.equals("search")) {
-                //find file client wants to search for
-                clientSearch();
-            } else if(request.equals("add")) {
-                clientAddFiles();
-            } else if(request.equals("download")) {
-                clientDownloadFile();
-            }
-        }
-    }
-
-    private static void clientSearch() {
+    static void clientSearch(String fileName) {
         //ask for file name then call search thread
-        frame.log("Type file to search for: ");
-        Scanner userInput = new Scanner(System.in);
-        new ClientSearchThread("127.0.0.1", 9090, userInput.nextLine(), new ClientSearchThread.SearchCallback() {
+//        frame.log("Type file to search for: ");
+//        Scanner userInput = new Scanner(System.in);
+        new ClientSearchThread("127.0.0.1", 9090, fileName, new ClientSearchThread.SearchCallback() {
             @Override
             public void searchResults(ArrayList<SearchResult> searchResults) {
                 frame.logln("Total Search Results: " + searchResults.size());
@@ -126,19 +128,19 @@ public class Client {
         return new DecimalFormat("#,##0.#").format(size/Math.pow(1024, digitGroups)) + units[digitGroups];
     }
 
-    private static void clientDownloadFile() {
+    static void clientDownloadFile(String fileName) {
         //get ip address
-        frame.log("Type peer's IPAddress: ");
-        Scanner userInput = new Scanner(System.in);
-        String address = userInput.nextLine();
+//        frame.log("Type peer's IPAddress: ");
+//        Scanner userInput = new Scanner(System.in);
+//        String address = userInput.nextLine();
 
         //get filename
-        frame.logln("Type file name: ");
-        userInput = new Scanner(System.in);
-        String fileName = userInput.nextLine();
-
+//        frame.logln("Type file name: ");
+//        userInput = new Scanner(System.in);
+//        String fileName = userInput.nextLine();
+//
         //create download thread
-        new ClientDownloadFileThread(address, 9092, fileName).start();
+        new ClientDownloadFileThread("127.0.0.1", 9092, fileName).start();
     }
 
     private static void pingComputer(String uuid) {
