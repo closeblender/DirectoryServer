@@ -80,7 +80,6 @@ public class ClientFrame extends JFrame {
     }
 
     private void onDownload() {
-        String address = peersList.getSelectedValue().toString();
         if(!filesList.isSelectionEmpty() && !peersList.isSelectionEmpty()) {
             String fileName = filesList.getSelectedValue().toString();
             String peerAddress = peersList.getSelectedValue().toString();

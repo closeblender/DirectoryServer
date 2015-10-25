@@ -102,7 +102,7 @@ public class Client {
         }
 
         if(files.size() > 0) {
-            new ClientUpdateFileThread("127.0.0.1", 9090, files, "temp", new ClientUpdateFileThread.UpdateFilesCallback() {
+            new ClientUpdateFileThread("127.0.0.1", 9090, files, uuid, new ClientUpdateFileThread.UpdateFilesCallback() {
                 public void onUpdate(boolean updated) {
                     frame.logln("Updated Files: " + updated);
                 }
