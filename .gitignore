@@ -1,5 +1,5 @@
 directory.bytes
 users.bytes
 uuid.bytes
-share/*
+share/
 .idea/workspace.xml
