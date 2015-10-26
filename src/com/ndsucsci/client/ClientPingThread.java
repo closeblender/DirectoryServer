@@ -27,14 +27,13 @@ public class ClientPingThread extends Thread {
 
     public void run() {
 
-        // Print out what you are doing
-        Client.frame.logln("Ping Server");
-
         try {
 
             socket = new DatagramSocket();
 
             while(true) {
+                // Print out what you are doing
+                Client.frame.logln("Ping Server");
                 byte[] uuidBytes = uuid.getBytes();
                 InetAddress address = InetAddress.getByName(host);
                 DatagramPacket packet = new DatagramPacket(uuidBytes, uuidBytes.length,
