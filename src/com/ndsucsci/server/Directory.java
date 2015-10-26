@@ -42,9 +42,6 @@ public class Directory implements Serializable{
                         break;
                     }
                 }
-                if (!found) {
-                    return false;
-                }
             }
         }
 
