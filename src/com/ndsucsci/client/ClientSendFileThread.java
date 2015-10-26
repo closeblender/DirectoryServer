@@ -44,11 +44,11 @@ public class ClientSendFileThread extends Thread {
 
                 buffer.flush();
 
-                message = DownloadFileResponse.createMessage(true, buffer.toByteArray());
+                message = DownloadFileResponse.createMessage(buffer.toByteArray());
                 Client.frame.logln("File sent.");
             } else {
                 Client.frame.logln("File Not Found");
-                message = DownloadFileResponse.createMessage(false, new byte[0]);
+                message = DownloadFileResponse.createMessage(new byte[0]);
             }
 
             os.write(message, 0, message.length);

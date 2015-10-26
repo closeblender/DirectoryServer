@@ -15,6 +15,7 @@ public class DataMessage {
     byte[] dataSize;
     int dataLengthReceived;
     ArrayList<Byte> allData;
+    byte[] cachedData;
 
     public DataMessage() {
         dataSize = new byte[4];
@@ -45,7 +46,7 @@ public class DataMessage {
             processedBytes ++;
         }
 
-        //System.out.println("Received " + allData.size() + "/" + getDataLength());
+        System.out.println("Received " + allData.size() + "/" + getDataLength());
 
     }
 
@@ -69,11 +70,14 @@ public class DataMessage {
             return null;
         }
 
-        byte[] data = new byte[getData().size()];
-        for(int i=0;i<data.length;i++) {
-            data[i] = getData().get(i);
+        if(cachedData == null) {
+            cachedData = new byte[getData().size()];
+            for(int i=0;i<cachedData.length;i++) {
+                cachedData[i] = getData().get(i);
+            }
         }
-        return data;
+
+        return cachedData;
     }
 
     public boolean receivedRequest() {

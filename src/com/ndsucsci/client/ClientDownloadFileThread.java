@@ -46,7 +46,12 @@ public class ClientDownloadFileThread extends Thread {
 
 
                 OutputStream fileOutput = new FileOutputStream("share/" + filename);
-                fileOutput.write(response.getFile());
+                Client.frame.logln("first");
+                byte[] fileBytes = response.getFile();
+                Client.frame.logln("second");
+                fileOutput.write(fileBytes);
+                Client.frame.logln("ljdfs: " + filename);
+
 
                 //check if file exists
                 if((new File("share/" + filename)).exists()) {
