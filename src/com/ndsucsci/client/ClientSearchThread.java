@@ -65,6 +65,8 @@ public class ClientSearchThread extends Thread {
                     e.printStackTrace();
                 }
             }
+            Client.frame.logln("Server not found at specified host and port.");
+            Client.frame.ConnectReset();
         }
     }
 

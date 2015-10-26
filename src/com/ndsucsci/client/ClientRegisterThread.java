@@ -54,8 +54,6 @@ public class ClientRegisterThread extends Thread {
 
         } catch (IOException e) {
             e.printStackTrace();
-            Client.frame.logln("Server not found at specified host and port.");
-            Client.frame.ConnectReset();
         } finally {
             if(socket != null) {
                 try {
@@ -64,6 +62,8 @@ public class ClientRegisterThread extends Thread {
                     e.printStackTrace();
                 }
             }
+            Client.frame.logln("Server not found at specified host and port.");
+            Client.frame.ConnectReset();
         }
     }
 
