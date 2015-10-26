@@ -15,7 +15,6 @@ public class ClientFrame extends JFrame {
     private JProgressBar progressBar1;
     private JTextArea log;
     public JTextField hostTextField;
-    public JTextField portTextField;
     private JButton downloadButton;
     private JButton updateButton;
     private JButton searchButton;
