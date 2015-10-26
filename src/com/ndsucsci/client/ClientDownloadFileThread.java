@@ -28,7 +28,7 @@ public class ClientDownloadFileThread extends Thread {
         Socket downloadSocket = null;
         //connect to other client
         try {
-            downloadSocket = new Socket("127.0.0.1", 9092);
+            downloadSocket = new Socket(host, port);
 
             Client.frame.logln("Downloading " + filename);
 
