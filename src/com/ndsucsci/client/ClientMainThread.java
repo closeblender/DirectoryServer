@@ -23,8 +23,6 @@ public class ClientMainThread extends Thread {
             Client.frame.logln("Client listening for peers.");
         } catch (Exception e) {
             e.printStackTrace();
-            Client.frame.logln("Client already running on host... process terminated.");
-            Client.frame.ConnectReset();
             return;
         }
 

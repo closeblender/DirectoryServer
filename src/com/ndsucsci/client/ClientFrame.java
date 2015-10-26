@@ -101,6 +101,7 @@ public class ClientFrame extends JFrame {
 
     public void ConnectReset(){
         buttonConnect.setEnabled(true);
+        hostTextField.setEnabled(true);
     }
 
     private void createUIComponents() {

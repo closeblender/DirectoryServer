@@ -52,6 +52,7 @@ public class ClientPingThread extends Thread {
             if(socket != null) {
                 socket.close();
             }
+            Client.frame.ConnectReset();
         }
     }
 
