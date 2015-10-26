@@ -62,9 +62,7 @@ public class DirectoryServer {
         }
 
         // Update Files!
-        for(int i=0;i<files.size(); i++) {
-            directory.updateFile(files.get(i), computerUUID);
-        }
+        directory.updateFiles(files, computerUUID);
 
         saveDirectory();
 

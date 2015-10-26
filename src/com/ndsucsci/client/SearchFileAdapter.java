@@ -24,7 +24,7 @@ public class SearchFileAdapter implements ListSelectionListener {
 
     public void valueChanged(ListSelectionEvent e) {
 
-        System.out.println("Selection Changed!");
+        //System.out.println("Selection Changed!");
 
         DefaultListModel peersJlist = new DefaultListModel();
 

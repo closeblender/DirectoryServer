@@ -19,35 +19,32 @@ public class Directory implements Serializable{
         directory = new HashMap<>();
     }
 
-    public boolean updateFile(UpdateFile file, String computerUUID) {
+    public boolean updateFiles(ArrayList<UpdateFile> files, String computerUUID) {
         ArrayList<DirectoryFile> userFiles = new ArrayList<DirectoryFile>();
-//        if(!directory.containsKey(computerUUID)) {
-//            userFiles = new ArrayList<DirectoryFile>();
-//        } else {
-//            userFiles = directory.get(computerUUID);
-//        }
 
-        if(file.add) {
-            // Make sure it isn't already there
-            for(int i=0;i<userFiles.size();i++) {
-                if(userFiles.get(i).filename.equals(file.filename) && userFiles.get(i).filesize.equals(file.filesize)) {
+        for(UpdateFile file : files) {
+            if (file.add) {
+                // Make sure it isn't already there
+                for (int i = 0; i < userFiles.size(); i++) {
+                    if (userFiles.get(i).filename.equals(file.filename) && userFiles.get(i).filesize.equals(file.filesize)) {
+                        return false;
+                    }
+                }
+
+                // Add it!
+                userFiles.add(new DirectoryFile(file.filename, file.filesize));
+            } else {
+                boolean found = false;
+                for (int i = 0; i < userFiles.size(); i++) {
+                    if (userFiles.get(i).filename.equals(file.filename) && userFiles.get(i).filesize.equals(file.filesize)) {
+                        found = true;
+                        userFiles.remove(i);
+                        break;
+                    }
+                }
+                if (!found) {
                     return false;
                 }
-            }
-
-            // Add it!
-            userFiles.add(new DirectoryFile(file.filename, file.filesize));
-        } else {
-            boolean found = false;
-            for(int i=0;i<userFiles.size();i++) {
-                if(userFiles.get(i).filename.equals(file.filename) && userFiles.get(i).filesize.equals(file.filesize)) {
-                    found = true;
-                    userFiles.remove(i);
-                    break;
-                }
-            }
-            if(!found) {
-                return false;
             }
         }
 

@@ -64,6 +64,7 @@ public class Client {
         new ClientSearchThread(getHost(), 9090, fileName, new ClientSearchThread.SearchCallback() {
             @Override
             public void searchResults(ArrayList<SearchResult> searchResults) {
+                frame.tvFilesDirectory.setText("Search Results: ");
                 //add search results to file and peer list
                 DefaultListModel filesJlist = new DefaultListModel();
                 for (SearchResult sr : searchResults) {
@@ -78,6 +79,7 @@ public class Client {
     }
 
     public static void clientUpdateFiles() {
+        frame.tvFilesDirectory.setText("Update Files: ");
         DefaultListModel filesJlist = new DefaultListModel();
         ArrayList<UpdateFile> files = new ArrayList<>();
         frame.logln("Make sure all files being added are located in your share folder.");
