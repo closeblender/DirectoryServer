@@ -42,6 +42,7 @@ public class ClientUpdateFileThread extends Thread {
 
         try {
 
+            System.out.println(host);
             socket = new Socket(host, port);
 
             OutputStream outToServer = socket.getOutputStream();

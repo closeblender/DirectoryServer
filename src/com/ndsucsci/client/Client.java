@@ -57,12 +57,11 @@ public class Client {
         //ping server and allow user to enter commands
         pingComputer(uuid);
         new ClientMainThread(9092).start();
-        clientAddFiles();
-        clientSearch("*");
+        clientUpdateFiles();
     }
 
     static void clientSearch(String fileName) {
-        new ClientSearchThread("127.0.0.1", 9090, fileName, new ClientSearchThread.SearchCallback() {
+        new ClientSearchThread(getHost(), 9090, fileName, new ClientSearchThread.SearchCallback() {
             @Override
             public void searchResults(ArrayList<SearchResult> searchResults) {
                 //add search results to file and peer list
@@ -80,7 +79,7 @@ public class Client {
         }).start();
     }
 
-    public static void clientAddFiles() {
+    public static void clientUpdateFiles() {
         DefaultListModel filesJlist = new DefaultListModel();
         ArrayList<UpdateFile> files = new ArrayList<>();
         frame.logln("Make sure all files being added are located in your share folder.");
@@ -102,7 +101,7 @@ public class Client {
         }
 
         if(files.size() > 0) {
-            new ClientUpdateFileThread("127.0.0.1", 9090, files, uuid, new ClientUpdateFileThread.UpdateFilesCallback() {
+            new ClientUpdateFileThread(getHost(), 9090, files, uuid, new ClientUpdateFileThread.UpdateFilesCallback() {
                 public void onUpdate(boolean updated) {
                     frame.logln("Updated Files: " + updated);
                 }
@@ -119,11 +118,11 @@ public class Client {
     }
 
     static void clientDownloadFile(String address, String fileName) {
-        new ClientDownloadFileThread("127.0.0.1", 9092, fileName).start();
+        new ClientDownloadFileThread(address, 9092, fileName).start();
     }
 
     private static void pingComputer(String uuid) {
-        new ClientPingThread("127.0.0.1", 9091, uuid).start();
+        new ClientPingThread(getHost(), 9091, uuid).start();
     }
 
     public static void checkForID() throws IOException, ClassNotFoundException {
@@ -141,11 +140,10 @@ public class Client {
         } else {
             System.out.println("New uuid!");
 
-            String hostName = frame.hostTextField.getText();
-            int portNo = Integer.parseInt(frame.portTextField.getText());
+            int portNo = 9090;
 
             //register client
-            new ClientRegisterThread(hostName, portNo, new ClientRegisterThread.RegisterCallback() {
+            new ClientRegisterThread(getHost(), portNo, new ClientRegisterThread.RegisterCallback() {
                 @Override
                 public void onRegistered(String computerUUID) {
                     //need to cache uuid
@@ -166,6 +164,10 @@ public class Client {
                 }
             }).start();
         }
+    }
+
+    public static String getHost() {
+        return frame.hostTextField.getText();
     }
 
 }

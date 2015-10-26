@@ -60,6 +60,7 @@ public class ClientFrame extends JFrame {
     private void onConnect() {
 // add your code here
         buttonConnect.setEnabled(false);
+        hostTextField.setEnabled(false);
         Client.connect();
     }
 
@@ -76,7 +77,7 @@ public class ClientFrame extends JFrame {
     }
 
     private void onUpdate() {
-        Client.clientAddFiles();
+        Client.clientUpdateFiles();
     }
 
     private void onDownload() {
