@@ -34,16 +34,16 @@ public class SearchFileAdapter implements ListSelectionListener {
 
         if(fileList.getSelectedValue() != null) {
             String filename = fileList.getSelectedValue().toString();
-            System.out.println("Searching File: " + filename);
+            //System.out.println("Searching File: " + filename);
             for (SearchResult sr : results) {
                 if(sr.filename.equals(filename)) {
-                    System.out.println("Found File!");
+                    //System.out.println("Found File!");
                     peersJlist.addElement(sr.ipAddress);
                 }
             }
         }
 
-        System.out.println("Found All Files: " + peersJlist.size());
+        //System.out.println("Found All Files: " + peersJlist.size());
         peerList.setModel(peersJlist);
 
     }
