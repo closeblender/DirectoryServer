@@ -64,11 +64,26 @@ public class Client {
         new ClientSearchThread(getHost(), 9090, fileName, new ClientSearchThread.SearchCallback() {
             @Override
             public void searchResults(ArrayList<SearchResult> searchResults) {
+
+                ArrayList<String> filenames = new ArrayList<String>();
+                for(int i=0;i<searchResults.size();i++) {
+                    boolean found = false;
+                    for(int j=0;j<filenames.size();j++) {
+                        if(filenames.get(j).equals(searchResults.get(i).filename)) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if(!found) {
+                        filenames.add(searchResults.get(i).filename);
+                    }
+                }
+
                 frame.tvFilesDirectory.setText("Search Results: ");
                 //add search results to file and peer list
                 DefaultListModel filesJlist = new DefaultListModel();
-                for (SearchResult sr : searchResults) {
-                    filesJlist.addElement(sr.filename);
+                for (String filename : filenames) {
+                    filesJlist.addElement(filename);
                 }
                 frame.filesList.setModel(filesJlist);
                 frame.filesList.addListSelectionListener(new SearchFileAdapter(frame.filesList, frame.peersList, searchResults));
