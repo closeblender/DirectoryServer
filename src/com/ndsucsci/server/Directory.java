@@ -64,20 +64,19 @@ public class Directory implements Serializable{
             // Branch if querying all files to return all file listings
             if(query.equals("*")) {
                 for(int j=0;j<files.size();j++) {
-                        if(isUserOnline(users, (String) keys[i])) {
-                            // Add to search
-                            searchResults.add(new SearchResult(files.get(j).filename, files.get(j).filesize, (String) keys[i]));
-                        }
+                    if(isUserOnline(users, (String) keys[i])) {
+                        // Add to search
+                        searchResults.add(new SearchResult(files.get(j).filename, files.get(j).filesize, getUser(users, (String) keys[i]).ipAddress));
+                    }
                 }
 
-            }
-            else {
+            } else {
                 for (int j = 0; j < files.size(); j++) {
                     // Check if contains the query
                     if (files.get(j).filename.toLowerCase().contains(query.toLowerCase())) {
                         if (isUserOnline(users, (String) keys[i])) {
                             // Add to search
-                            searchResults.add(new SearchResult(files.get(j).filename, files.get(j).filesize, (String) keys[i]));
+                            searchResults.add(new SearchResult(files.get(j).filename, files.get(j).filesize, getUser(users, (String) keys[i]).ipAddress));
                         }
                     }
                 }
@@ -85,6 +84,15 @@ public class Directory implements Serializable{
         }
 
         return searchResults;
+    }
+
+    public static User getUser(ArrayList<User> users, String uuid) {
+        for(int i=0;i<users.size();i++) {
+            if(users.get(i).uuid.equals(uuid)) {
+                return users.get(i);
+            }
+        }
+        return null;
     }
 
     public static boolean isUserOnline(ArrayList<User> users, String key) {
