@@ -51,6 +51,7 @@ public class ClientDownloadFileThread extends Thread {
                 //check if file exists
                 if((new File("share/" + filename)).exists()) {
                     Client.frame.logln("Received File");
+                    Client.clientUpdateFiles();
                 }
 
             } else {

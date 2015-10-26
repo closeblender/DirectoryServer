@@ -16,10 +16,14 @@ public class SearchFileAdapter implements ListSelectionListener {
     JList peerList;
     ArrayList<SearchResult> results;
 
-    public SearchFileAdapter(JList fileList, JList peerList, ArrayList<SearchResult> results) {
+    public SearchFileAdapter(JList fileList, JList peerList) {
         this.fileList = fileList;
         this.peerList = peerList;
-        this.results = results;
+        this.results = new ArrayList<>();
+    }
+
+    public void updateResults(ArrayList<SearchResult> newResults) {
+        results = newResults;
     }
 
     public void valueChanged(ListSelectionEvent e) {
@@ -30,15 +34,16 @@ public class SearchFileAdapter implements ListSelectionListener {
 
         if(fileList.getSelectedValue() != null) {
             String filename = fileList.getSelectedValue().toString();
-            //System.out.println("Searching File: " + filename);
+            System.out.println("Searching File: " + filename);
             for (SearchResult sr : results) {
                 if(sr.filename.equals(filename)) {
-                    //System.out.println("Found File!");
+                    System.out.println("Found File!");
                     peersJlist.addElement(sr.ipAddress);
                 }
             }
         }
 
+        System.out.println("Found All Files: " + peersJlist.size());
         peerList.setModel(peersJlist);
 
     }

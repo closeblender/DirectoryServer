@@ -19,6 +19,7 @@ public class ClientFrame extends JFrame {
     private JButton updateButton;
     private JButton searchButton;
     public JLabel tvFilesDirectory;
+    public SearchFileAdapter listSelectionListener;
 
     public ClientFrame() {
         setContentPane(contentPane);
@@ -55,6 +56,10 @@ public class ClientFrame extends JFrame {
                 onExit();
             }
         });
+
+        listSelectionListener = new SearchFileAdapter(filesList, peersList);
+        filesList.addListSelectionListener(listSelectionListener);
+
     }
 
     private void onConnect() {

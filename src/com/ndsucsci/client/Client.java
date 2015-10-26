@@ -86,7 +86,7 @@ public class Client {
                     filesJlist.addElement(filename);
                 }
                 frame.filesList.setModel(filesJlist);
-                frame.filesList.addListSelectionListener(new SearchFileAdapter(frame.filesList, frame.peersList, searchResults));
+                frame.listSelectionListener.updateResults(searchResults);
                 frame.logln("Total Search Results: " + searchResults.size());
                 frame.logln(searchResults.toString());
             }
