@@ -18,6 +18,7 @@ public class ClientFrame extends JFrame {
     private JButton downloadButton;
     private JButton updateButton;
     private JButton searchButton;
+    public JLabel tvFilesDirectory;
 
     public ClientFrame() {
         setContentPane(contentPane);
