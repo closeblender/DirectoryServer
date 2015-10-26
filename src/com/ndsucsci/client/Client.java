@@ -66,13 +66,11 @@ public class Client {
             public void searchResults(ArrayList<SearchResult> searchResults) {
                 //add search results to file and peer list
                 DefaultListModel filesJlist = new DefaultListModel();
-                DefaultListModel peersJlist = new DefaultListModel();
                 for (SearchResult sr : searchResults) {
                     filesJlist.addElement(sr.filename);
-                    peersJlist.addElement(sr.ipAddress);
                 }
                 frame.filesList.setModel(filesJlist);
-                frame.peersList.setModel(peersJlist);
+                frame.filesList.addListSelectionListener(new SearchFileAdapter(frame.filesList, frame.peersList, searchResults));
                 frame.logln("Total Search Results: " + searchResults.size());
                 frame.logln(searchResults.toString());
             }
